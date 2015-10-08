@@ -14,3 +14,6 @@ Fetch data from the server
 mock the API
   You can have a class / function that fetches the data and then calls dispatch to change the state
   Try mock data, but real async code + dispatch, for example call the dispatch from a setTimeout(func, 2000) so you can see how the data retrieval and state change work
+
+css
+  some people use radium, some other css modules, some other sass/less classical css

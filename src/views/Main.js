@@ -9,6 +9,11 @@ import { connect } from 'react-redux';
 const mapStateToProps = (state) => ({
   counter : state.counter
 });
+
+const style = {
+  color: 'blue'
+};
+
 export class Main extends React.Component {
   static propTypes = {
     dispatch : React.PropTypes.func,
@@ -27,16 +32,12 @@ export class Main extends React.Component {
 
   render () {
     return (
-      <div className='container text-center'>
-        <h1>Welcome to the React Redux Starter Kit</h1>
-        <h2>Sample Counter: {this.props.counter}</h2>
-        <button className='btn btn-default'
-                onClick={::this._increment}>
-          Increment
-        </button>
+      <div className='container text-center' style={style}>
+        show list of studies
       </div>
     );
   }
 }
+
 
 export default connect(mapStateToProps)(Main);
