@@ -30,8 +30,7 @@ export class Main extends React.Component {
 
   render () {
     const Data = this.props.studies;
-    console.log('**', this.props.studies);
-    const listNodes = Data.map((node, index) => <li key=node.index>node.name</li>);
+    const listNodes = Data.map((node, index) => <li key={index}>{node.name}</li>);
 
     return (
       <div className='container text-center' style={style}>
