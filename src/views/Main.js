@@ -17,7 +17,8 @@ const style = {
 export class Main extends React.Component {
   static propTypes = {
     dispatch : React.PropTypes.func,
-    counter  : React.PropTypes.number
+    counter  : React.PropTypes.number,
+    studies: React.PropTypes.array
   }
 
   constructor () {
@@ -43,6 +44,5 @@ export class Main extends React.Component {
     );
   }
 }
-
 
 export default connect(mapStateToProps)(Main);
