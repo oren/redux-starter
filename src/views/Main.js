@@ -7,7 +7,8 @@ import { connect } from 'react-redux';
 // the component can be tested w/ and w/o being connected.
 // See: http://rackt.github.io/redux/docs/recipes/WritingTests.html
 const mapStateToProps = (state) => ({
-  counter : state.counter
+  counter : state.counter,
+  studies : state.studies
 });
 
 const style = {
@@ -29,6 +30,7 @@ export class Main extends React.Component {
 
   render () {
     const Data = this.props.studies;
+    console.log('**', this.props.studies);
     const listNodes = Data.map((node) => <li>{node}</li>);
 
     return (
