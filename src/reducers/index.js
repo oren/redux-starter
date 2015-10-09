@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import counter from './counter';
-import counter from './studies';
+import studies from './studies';
 
 export default combineReducers({
   counter,

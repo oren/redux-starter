@@ -4,7 +4,7 @@ import { createReducer } from 'utils';
 // this starter kit as small as possible we'll just define it here.
 const FETCH_STUDIES = 'FETCH_STUDIES';
 
-const initialState = 0;
+const initialState = { studies: [] };
 export default createReducer(initialState, {
-  [FETCH_STUDIES] : (state) => state + 1
+  [FETCH_STUDIES] : () => { studies: [ { foo: 'bar'}, {baz: 'foo'}] }
 });

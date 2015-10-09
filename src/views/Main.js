@@ -29,7 +29,16 @@ export class Main extends React.Component {
   render () {
     return (
       <div className='container text-center' style={style}>
+        <button className='btn btn-default'
+                onClick={::this._fetchStudies}>
+          Fetch studies
+        </button>
         show list of studies
+        <ul>
+          <li>
+            {this.props.studies}
+          </li>
+        </ul>
       </div>
     );
   }
