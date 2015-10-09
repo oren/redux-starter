@@ -47,6 +47,9 @@ Fetch data from the server using redux
   so you can reused it somewhere else, but yeah fundamentally it's the same thing
 
 to make http calls
+  https://facebook.github.io/react/tips/initial-ajax.html
+
+misc
   https://github.com/gaearon/redux-thunk
     thunk allows you to do a lot more, but in a nutshell - you can dispatch other actions from inside an action
   https://github.com/acdlite/redux-actions
