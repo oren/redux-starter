@@ -5,12 +5,18 @@ import { createReducer } from 'utils';
 const FETCH_STUDIES = 'FETCH_STUDIES';
 const initialState = { studies: [] };
 
-const getStudies = () => {
-  studies: [ { name: 'study 3'}, {name: 'study 4'}];
+const getStudiesFromServer = () => {
+  fetch('studies.json').then(function(response) {
+    console.log('res', response.status);
+    return response.json();
+  }).catch(function(err) {
+    console.error('Error:', err);
+  });
+
+  // return ({studies: [ { name: 'study 3'}, {name: 'study 4'}]});
 };
 
 export default createReducer(initialState, {
-  // [FETCH_STUDIES] : () => ({ studies: [ { name: 'study 1'}, {name: 'study 2'}] })
-  [FETCH_STUDIES] : () => getStudies()
+  [FETCH_STUDIES] : () => getStudiesFromServer()
 });
 
