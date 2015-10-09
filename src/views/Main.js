@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 // See: http://rackt.github.io/redux/docs/recipes/WritingTests.html
 const mapStateToProps = (state) => ({
   counter : state.counter,
-  studies : state.studies
+  studies : state.studies.studies
 });
 
 const style = {
