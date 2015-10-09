@@ -11,7 +11,7 @@ const mapStateToProps = (state) => ({
 });
 
 const style = {
-  color: 'blue'
+  backgroundColor: 'grey'
 };
 
 export class Main extends React.Component {
@@ -28,6 +28,9 @@ export class Main extends React.Component {
   _fetchStudies () { this.props.dispatch({ type : 'FETCH_STUDIES' }); }
 
   render () {
+    const Data = this.props.studies;
+    const listNodes = Data.map((node) => <li>{node}</li>);
+
     return (
       <div className='container text-center' style={style}>
         <button className='btn btn-default'
@@ -36,9 +39,7 @@ export class Main extends React.Component {
         </button>
         show list of studies
         <ul>
-          <li>
-            {this.props.studies}
-          </li>
+          {listNodes}
         </ul>
       </div>
     );

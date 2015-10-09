@@ -6,5 +6,5 @@ const FETCH_STUDIES = 'FETCH_STUDIES';
 
 const initialState = { studies: [] };
 export default createReducer(initialState, {
-  [FETCH_STUDIES] : () => { studies: [ { foo: 'bar'}, {baz: 'foo'}] }
+  [FETCH_STUDIES] : () => ({ studies: [ { foo: 'bar'}, {baz: 'foo'}] })
 });
