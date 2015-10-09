@@ -19,12 +19,6 @@ export class TopNav extends React.Component {
     super();
   }
 
-  // normally you'd import an action creator, but I don't want to create
-  // a file that you're just going to delete anyways!
-  _increment () {
-    this.props.dispatch({ type : 'COUNTER_INCREMENT' });
-  }
-
   render () {
     return (
       <div className='container text-center'>

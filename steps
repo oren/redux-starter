@@ -1,10 +1,8 @@
 modify the project:
 build/webpack/_base.js, line 29, change to `minify: false` from true
 
-Fetch data from the server
-  create an action, which fetches from your api
-  a reducer that responds to that action settin the app state
-  create a connect to fetch from state and render
+get rid of the right area: https://github.com/davezuko/react-redux-starter-kit/blob/master/src/containers/Root.js#L58-L60
+
 
   api fetch example
     https://github.com/rackt/redux/tree/master/examples/real-world
@@ -17,3 +15,34 @@ mock the API
 
 css
   some people use radium, some other css modules, some other sass/less classical css
+
+
+Fetch data from the server using redux
+  1. create an action, which fetches from your api
+  2. a reducer that responds to that action setting the app state
+  3. create a connect to fetch from state and render
+
+  redux is a flux implementation
+  In a flux architecture you have stores, which are singletons that store your app state/data from api etc...
+  your components consume data from such stores but do not mutate directly their state, they request for mutations to happen, the store then "does something" and produces a new state for the
+  component(s) that subscribe to it to consume
+  (such requests are called actions)
+  in redux, there's a single store for everything, and you can "subscribe" (read+ notification when it changes) to parts of the store tree
+  so in your specific case what happens in a flux structure is
+  your component asks thru an action for some data to be fetched and for the state to be modified as this new data having landed, and then by subscribing to that part of the store that is going
+  to have all the data that you requested to be changed, will be notified
+  so for example, your store initial state will be something like `{ users: [] }`
+  your components calls an action "fetchData"
+  fetchData fetches from the api and tells the store "hey i got this bunch of data for you"
+  at that point your reducer which will respond to the action produced by fetchData
+  will produce a new state `{ users: [ { foo: 'bar'}, {baz: 'foo'}]`
+  and since your component is subscribed to state.users (thru connect), you'll get a new set of props for user
+
+  so my component need to call fetchData action, the action will call the API. when the data is returned, state.users is assigned, and my component will get updated
+  https://facebook.github.io/flux/img/flux-simple-f8-diagram-with-client-action-1300w.png
+  in redux you normally either bind an action to the dispatcher or call `store.dispatch(action(someparams))`
+
+  sure, probably a better way would be to have function inside your actions/index.js like `function fetchData() { return { type : 'FETCH_STUDIES' }; }`
+  then call it `this.props.dispatch(fetchData());`
+  so you can reused it somewhere else, but yeah fundamentally it's the same thing
+
