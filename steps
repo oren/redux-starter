@@ -54,3 +54,19 @@ misc
     thunk allows you to do a lot more, but in a nutshell - you can dispatch other actions from inside an action
   https://github.com/acdlite/redux-actions
     redux-actions is just a helper to make it easier/cleaner to write your actions
+
+
+so for the `react-redux-starter-kit` you should be able get going pretty quick. just look at `src/views/counter.js’ and `src/reducers/counter.js` and the example that
+comes with it should make sense
+the routes folder contains the route definitions (it uses `redux-router`). you can get to that when you have time—you can do redux before you need to actually use
+that.
+i don’t really get why there is `layouts` and `views` folders. I just delete those and use a `components` folder
+
+that repo doesn’t come with an `actions` folder though—you’ll need to create that, and put your action creators in there if you want (just like how the `redux` docs
+suggest)
+look at redux docs. `redux-thunk` is probably the best solution.
+but basically you’ll have an action creator that initiates the async call and dispatches actions for progress. so it will dispatch `FETCH_STARTED`, and then
+`FETCH_SUCCESS` when the `fetch` is resolved
+the action creator function that calls dispatch those 2 times is just called once in the view though.
+
+`connect` is the glue between `redux` and a `react` component
